@@ -17,6 +17,7 @@
     
     <?php
       echo $_SESSION['username'].'s EMAIL IS '.$_SESSION['email'];
+      
        
     ?>
     
