@@ -3,12 +3,16 @@
 
 <?php
     //select query
-    $query = 'SELECT * FROM messages';
+    $query = 'SELECT * FROM messages ORDER BY create_date';
     
     $messages = mysqli_query($conn, $query);
     
     if (isset($_GET['error'])){
          $error = $_GET['error'];
+    }
+    
+    if(isset($_GET['success'])){
+        $error = $_GET['success'];
     }
     
     
@@ -32,17 +36,25 @@
     <div class="container">
         <header>
             <h1>message app</h1>
-            if
+            <?php if(isset($error)): ?>
+             <div class="alert"><?php echo $error; ?></div>
+            
+            <?php endif; ?>
+            <?php if(isset($success)): ?>
+             <div class="alert"><?php echo $success; ?></div>
+            
+            <?php endif; ?>
+            
         </header>
         <div class="main">
-            <form action="">
+            <form action="process.php" method="POST">
                 <input type="text" name="text" placeholder="enter message text">
                <input type="text" name="text" placeholder="enter user name">
                 <input type="submit" value="submit">
             </form>
             <ul class="messages">
                 <?php while($row = mysqli_fetch_assoc($messages)) : ?>
-                   <li><?php echo $ow['text']; ?> | <?php echo $row['user']; ?>|  
+                   <li><?php echo $row['text']; ?> | <?php echo $row['user']; ?>|  
                       [<?php echo $row ['create_date']; ?>] 
                    
                    </li>

@@ -22,3 +22,21 @@ ul.messages li{
     list-style: none;
     background: #f9f9f9;
 }
+
+footer {
+    margin-top: 40px;
+}
+
+.alert{
+    background: red;
+    color: #fff;
+    padding: 4px;
+    margin-bottom: 10px;
+}
+
+.success{
+    background: green;
+    color: #fff;
+    padding: 4px;
+    margin-bottom: 10px;
+}
